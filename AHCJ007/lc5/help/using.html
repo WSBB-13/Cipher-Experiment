@@ -1,0 +1,788 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<base target="_self">
+<title>LC5 Documentation: Using LC5</title>
+<link rel=Stylesheet type="text/css" media=all href="lc5_doc.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-weight:bold;}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:10.5pt;
+	font-weight:bold;}
+h4
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#0033CC;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#336666;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.mono, li.mono, div.mono
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;}
+p.fine, li.fine, div.fine
+	{margin-right:0in;
+	margin-left:0in;
+	line-height:9.75pt;
+	font-size:8.5pt;}
+p.small, li.small, div.small
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:8.5pt;
+	font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body bgcolor=white lang=EN-US link="#0033CC" vlink="#336666">
+
+<div class=Section1>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=550
+ style='width:412.5pt'>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <h1>Using LC5</h1>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>For security reasons,
+  operating systems do not store passwords in their original clear-text format.
+  The actual passwords are encrypted into a hashed form, because they are sensitive
+  information that can be used to impersonate users, including the operating
+  system administrator. The original password cannot be derived directly from a
+  hashed password, and LC5 operates similar to a hacker to discover the
+  password by automated guessing. LC5's automated guessing process illustrates
+  the difficulty in password cracking. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>LC5 obtains password
+  hashes from the operating system, and then begins hashing possible password
+  values. The password is discovered when there is a match between a target
+  hash and a computed hash. LC5 must first obtain password hashes from the
+  target system, and then uses various cracking methods to retrieve the
+  passwords. </span></p>
+
+  <h2><a name="obtaining_hashes">Obtaining the Password Hashes</a></h2>
+  <p class=MsoNormal style='margin-bottom:12.0pt'><span style='font-size:10.0pt;
+  font-family:Verdana'>Approaches to obtaining password hashes differ,
+  depending on where the password resides on the computer, and your ability to
+  access them. LC5 can obtain password hashes directly from remote machines,
+  from the local file system, from backup tapes and repair disks, from Active
+  Directory, or by recovering them as they traverse the network. Obtaining
+  passwords over the network requires network and administrator privileges, as
+  detailed below. </span></p>
+
+  <p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Symbol'>&middot;</span><span
+  style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+  style='font-size:10.0pt;font-family:Verdana'>Import From Local Machine</span></b><span
+  style='font-size:10.0pt;font-family:Verdana'><br>
+
+  To import passwords from a local machine, obtain administrator rights to the
+  machine you intend to audit. From the <b>Session</b> menu, select <b>Import</b>
+  and click the <b>Local Machine</b> option in the dialog box to retrieve the
+  hashes. This approach works regardless of whether passwords are stored in a
+  SAM file or in an Active Directory. </span></p>
+
+  <p style='margin-left:.25in'><b><span style='font-size:10.0pt;font-family:
+  Verdana'>NOTE:</span></b><span style='font-size:10.0pt;font-family:Verdana'>
+  LC5 is limited to dumping and opening 65,000 users. Audits with than 10,000
+  users require longer audit sessions. </span></p>
+
+  <p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Symbol'>&middot;</span><span
+  style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b><span
+  style='font-size:10.0pt;font-family:Verdana'>Import from Remote Machine</span></b><span
+  style='font-size:10.0pt;font-family:Verdana'><br>
+  LC5 incorporates remote password retrieval into the product, simplifying the
+  process of obtaining password hashes, and reducing the need to use a
+  third-party retrieval tool because of SYSKEY issues. </span></p>
+
+  <p style='margin-left:.25in'><span style='font-size:10.0pt;font-family:Verdana'>To
+  import remote machines to the audit list, use the <b>Import</b> dialog box
+  from the <b>Session</b> menu, and click on <b>Remote Machine</b>. Use the <b>Add</b>
+  and <b>Browse</b> buttons to add the remote machines. Retrieving password
+  files from remote machines requires administrative access. </span>
+<br><br>
+  <img width=431 height=346 src="using_files/image001.jpg" align=center hspace=12><span style='font-size:
+  10.0pt;font-family:Verdana'></span></p>
+  <p style='margin-left:.25in'><span style='font-size:10.0pt;font-family:Verdana'>To
+  save the audited group of remote machines, click <b>Save As</b> in the Import
+  dialog box. Click <b>Open</b> from within the Import dialog box to retrieve a
+  stored group. </span></p>
+  <p style='margin-left:.25in'><span style='font-size:10.0pt;font-family:Verdana'>LC5
+  audits Unix password files from within the same interface. You are required
+  to have an account on the remote Unix machine with access to the shadow file
+  to perform this type of audit. @stake recommends creating an auditing account
+  on the remote machine to be used only by LC5. </span></p>
+  <p style='margin-left:.25in'><span style='font-size:10.0pt;font-family:Verdana'>Passwords
+  can be obtained remotely from both Windows and Unix machines, and contained
+  in a single session. If they are both in a single session, auditing order is
+  as follows: </span></p>
+  <ul style='margin-top:0in' type=disc>
+   <ul style='margin-top:0in' type=circle>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Windows
+        Dictionary </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Unix
+        Dictionary </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Windows
+        Hybrid </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Unix
+        Hybrid </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Windows
+        Pre-computed </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Unix
+        Pre-computed </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Windows
+        Brute Force </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Unix
+        Brute Force </span></li>
+   </ul>
+  </ul>
+  <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+  font-family:Verdana'>&nbsp;</span></p>
+  <ul style='margin-top:0in' type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>SAM
+       File</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+       On systems that do not use Active Directory, or SYSKEY, you may obtain
+       password hashes directly from a password database file stored on the
+       system, the SAM file. </span></li>
+  </ul>
+  <p class=MsoNormal style='margin-left:.4in'><span style='font-size:10.0pt;
+  font-family:Verdana'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-left:.4in'><b><span style='font-size:10.0pt;
+  font-family:Verdana'>Note:</span></b><span style='font-size:10.0pt;
+  font-family:Verdana'> This approach does not obtain password hashes from most
+  Windows 2000 and Windows XP systems, as Windows 2000 and XP use SYSKEY by
+  default. SYSKEY hashes cannot be found using a password cracker, due to the
+  strong encryption Windows 2000 and XP use. </span></p>
+  <p class=MsoNormal style='margin-left:.4in'><span style='font-size:10.0pt;
+  font-family:Verdana'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-left:.4in'><span style='font-size:10.0pt;
+  font-family:Verdana'>Windows NT Service Pack 3 introduced SYSKEY, which is
+  turned off by default. SAM access works on Windows NT systems, unless SYSKEY
+  is explicitly turned on. SYSKEY provides an additional layer of encryption to
+  stored password hashes, however, you cannot tell by looking at the SAM or at
+  password hashes it contains whether they have been encrypted with SYSKEY or
+  not. LC5 cannot crack SYSKEY-encrypted password hashes. If you do not have
+  access to at least one administrator account on a Windows 2000 machine, you
+  cannot obtain the password hashes required to run LC5. In such cases, you may
+  benefit from a <a href="appendix.html#reset">password reset utility</a>.</span></p>
+  <p class=MsoNormal style='margin-left:.4in'><span style='font-size:10.0pt;
+  font-family:Verdana'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-left:.4in'><span style='font-size:10.0pt;
+  font-family:Verdana'>Password hashes cannot be read from the file system while
+  the operating system is running, since the operating system holds a lock on
+  the SAM file where the password hashes are stored. Copy the SAM file by
+  booting another operating system such as DOS (running <a
+  href="appendix.html#ntfsdos">NTFSDOS</a>), or Linux (with NTFS file system
+  support) and retrieving it from the target system, where it is typically
+  stored in </span><b><span style='font-size:10.0pt;font-family:"Courier New"'>C:\WinNT\system32\config</span></b>
+  <span style='font-size:10.0pt;font-family:Verdana'>. This is especially
+  useful if you have physical access to the machine and it has a floppy drive. </span></p>
+  <p style='margin-left:.4in'><span style='font-size:10.0pt;font-family:Verdana'>You
+  may also retrieve a SAM from a Windows NT Emergency Repair Disk, a repair
+  directory on the system hard drive, or from a backup tape. Windows 2000 does
+  not normally store a SAM file on the repair disks it generates.</span></p>
+  <p style='margin-left:.4in'><span style='font-size:10.0pt;font-family:Verdana'>Load
+  the password hashes from a &quot;SAM&quot; or &quot;SAM._&quot; file into LC5
+  using the <b>Import</b> dialog. Select to <b>Import from file</b>, <b>From
+  SAM File</b> and specify the filename. LC5 will automatically expand
+  compressed &quot;SAM._&quot; files on NT. </span></p>
+  <p class=MsoNormal align=center style='margin-top:0in;margin-right:0in;
+  margin-bottom:12.0pt;margin-left:.4in;text-align:center'><img border=0
+  width=431 height=346 src="using_files/image002.jpg"></p>
+  <ul style='margin-top:0in' type=disc>
+   <li class=MsoNormal style='margin-bottom:12.0pt'><b><span style='font-size:
+       10.0pt;font-family:Verdana'>Import LC4 Files</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'><br>
+       LC5 can import previously saved sessions from LC4, allowing for a smooth
+       upgrade to LC5, as all of your LC4 session files can be used. LC5 also
+       has improved reporting capabilities to open previously completed
+       sessions. </span></li>
+   <li class=MsoNormal style='margin-bottom:12.0pt'><b><span style='font-size:
+       10.0pt;font-family:Verdana'>PWDUMP3</span></b><span style='font-size:
+       10.0pt;font-family:Verdana'><br>
+       LC5 dumps password hashes from the SAM database (and from Active
+       Directory) of a system with Administrator privileges, regardless if
+       SYSKEY is enabled or disabled on the system. </span></li>
+   <li class=MsoNormal style='margin-bottom:12.0pt'><b><span style='font-size:
+       10.0pt;font-family:Verdana'>From Unix shadow file</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'><br>
+       What does this actually do? Why isn't the information here?</span></li>
+  </ul>
+  <ul style='margin-top:0in' type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Packet
+       Capture via Sniffing</span></b><span style='font-size:10.0pt;font-family:
+       Verdana'><br>
+       Packet capture, or &quot;Sniffing,&quot; is an advanced approach to
+       obtaining password hashes that benefits from a good understanding of Ethernet
+       networks. LC5 supports sniffing via <a
+       href="appendix.html#lc5_dependencies">WinPcap</a> packet capture
+       software built by the Microsoft-sponsored Politecnico di Torino. </span></li>
+  </ul>
+  <p style='margin-left:.4in'><span style='font-size:10.0pt;font-family:Verdana'>LC5
+  can capture the encrypted hashes from the challenge/response exchanged when
+  one machine authenticates to another over the network. Your machine must have
+  one or more Ethernet devices to access the network. From the <b>Session</b>
+  menu, select <b>Import From Sniffer</b>. If more than one network interface
+  is detected, the <b>Select Network Interface</b> dialog box allows you to
+  choose the interface to sniff on. </span></p>
+  <p style='margin-left:.4in'><span style='font-size:10.0pt;font-family:Verdana'>After
+  choosing your interface, the <b>SMB Packet Capture Output</b> dialog box
+  appears to capture any SMB authentication sessions that your network device
+  can capture. Switched network connections only allow you to see sessions
+  originating from your machine or connecting to your machine. </span></p>
+  <p style='margin-left:.4in'><b><span style='font-size:10.0pt;font-family:
+  Verdana'>NOTE:</span></b><span style='font-size:10.0pt;font-family:Verdana'>
+  If you have a previous version of LC installed on your machine, you must
+  remove the NDIS packet driver from the <b>Protocols</b> tab in the <b>Network
+  Control Panel</b>. Other low level packet drivers that are known to cause
+  problems are the Asmodeus and ISS packet drivers. These need to be removed as
+  well. </span></p>
+  <p style='margin-left:.4in'><span style='font-size:10.0pt;font-family:Verdana'>As
+  SMB session authentications are captured, they are displayed in the <b>SMB
+  Packet Capture Output</b> window. The display shows: </span></p>
+  <ul style='margin-top:0in' type=disc>
+   <ul style='margin-top:0in' type=circle>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Source
+        and Destination IP addresses </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+        user name </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+        challenge </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+        encrypted LANMAN hash </span></li>
+    <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+        encrypted NTLM hash </span></li>
+   </ul>
+  </ul>
+  <p style='margin-left:.4in'><span style='font-size:10.0pt;font-family:Verdana'>The
+  capture can be imported at any time using the <b>Import</b> button. You can capture
+  and crack other passwords at the same time; however, password hashes captured
+  after initiating an audit are not attempted in the running audit. </span></p>
+  <p style='margin-left:.4in'><b><span style='font-size:10.0pt;font-family:
+  Verdana'>Note:</span></b><span style='font-size:10.0pt;font-family:Verdana'>
+  LC5's packet capture works on Ethernet adapters only, and may fail if a
+  firewall is running on the same machine as LC5. It will not function reliably
+  on a PPP connection. </span></p>
+  <h2><a name="cracking_hashes">Cracking the Password Hashes</a></h2>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+  cracking processes that generates password values provides several options
+  that balance audit rigor against the time required to crack. Effective auditing,
+  therefore, requires an understanding the underlying business goals, and the
+  security thresholds necessary to meet them. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>To configure the
+  cracking methods for your session, choose <b>Session Options</b> under the <b>Session</b>
+  menu or click the <b>Session Options</b> button on the toolbar to open the <b>Auditing
+  Options For This Session</b> dialog box. The options for this dialog box are
+  detailed below. </span></p>
+  <h3>The UserName Crack</h3>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>LC5
+  first checks to see if any accounts have used the username as a password.
+  These are weak passwords that you need to know about right away. This crack
+  is performed first in every audit, because it is very quick. </span></p>
+  <h3>Dictionary Crack</h3>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+  fastest method for retrieving simple passwords is a dictionary crack. LC5
+  tests all the words in a dictionary or word file against the password hashes.
+  Once LC5 finds a correct password, the result is displayed. The dictionary
+  crack tries words up to the 14 character length limit (set by Windows NT, but
+  not Windows 2000). </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>LC5 uses the
+  25,000-word dictionary file, <b>words-english.dic</b>, which contains the
+  most common English words. LC5 also ships a 250,000 dictionary, <b>words-english-big.dic</b>,
+  which can be used for more comprehensive dictionary audits. LC5 loads this
+  file or any other word file you select based on settings in the <b>Session
+  Options </b>dialog. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>LC5 displays the result
+  of passwords of any length located in the dictionary. The cracking process
+  for non-dictionary words analyzes the first and last seven characters of a
+  possible password, independently. For example, if the first seven characters
+  of a password match those of a word in the dictionary, LC5 reports these,
+  even if subsequent characters do not match those in the dictionary word.
+  Likewise, if the eighth character through the end of the word matches the
+  corresponding characters in any dictionary word, LC5 identifies those. When
+  one half of a password is cracked, but the other is not, question marks (i.e.
+  ???????) fill the un-cracked half. If neither half is cracked, the results in
+  LC5 are left blank. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The table below illustrates
+  partial results LC5 returns when one part of a password matches a dictionary
+  word and the other does not. Consider the following passwords and their
+  results in a Dictionary crack: <br>
+  &nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <table class=MsoNormalTable border=0 cellspacing=1 cellpadding=0 width="100%"
+   style='width:100.0%;background:#EEEEEE'>
+   <tr>
+    <td width="19%" valign=top style='width:19.0%;background:#CCCCCC;
+    padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center'><b><span
+    style='font-size:10.0pt;font-family:Verdana'>Password</span></b></p>
+    </td>
+    <td width="31%" valign=top style='width:31.0%;background:#CCCCCC;
+    padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center'><b><span
+    style='font-size:10.0pt;font-family:Verdana'>Dictionary Crack Result</span></b></p>
+    </td>
+    <td width="66%" valign=top style='width:66.0%;background:#CCCCCC;
+    padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center'><b><span
+    style='font-size:10.0pt;font-family:Verdana'>Comments</span></b></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="19%" valign=top style='width:19.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center;line-height:9.75pt'><span
+    style='font-size:8.5pt;font-family:Arial'>biochemistry</span></p>
+    </td>
+    <td width="31%" valign=top style='width:31.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center;line-height:9.75pt'><span
+    style='font-size:8.5pt;font-family:Arial'>biochemistry</span></p>
+    </td>
+    <td width="66%" valign=top style='width:66.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal style='line-height:9.75pt'><span style='font-size:8.5pt;
+    font-family:Arial'>Standard word, found in LC5's words-english dictionary,
+    and cracked in full.</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="19%" valign=top style='width:19.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center;line-height:9.75pt'><span
+    style='font-size:8.5pt;font-family:Arial'>biochemist7y</span></p>
+    </td>
+    <td width="31%" valign=top style='width:31.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center;line-height:9.75pt'><span
+    style='font-size:8.5pt;font-family:Arial'>biochem???????</span></p>
+    </td>
+    <td width="66%" valign=top style='width:66.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal style='line-height:9.75pt'><span style='font-size:8.5pt;
+    font-family:Arial'>The first 7 characters match those in 'biochemistry.'</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="19%" valign=top style='width:19.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center;line-height:9.75pt'><span
+    style='font-size:8.5pt;font-family:Arial'>b#^chemistry</span></p>
+    </td>
+    <td width="31%" valign=top style='width:31.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center;line-height:9.75pt'><span
+    style='font-size:8.5pt;font-family:Arial'>???????istry</span></p>
+    </td>
+    <td width="66%" valign=top style='width:66.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal style='line-height:9.75pt'><span style='font-size:8.5pt;
+    font-family:Arial'>The 8th character, through the end of the password
+    matches the corresponding characters in 'biochemistry,' but the first seven
+    do not.</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="19%" valign=top style='width:19.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center;line-height:9.75pt'><span
+    style='font-size:8.5pt;font-family:Arial'>accomplistry</span></p>
+    </td>
+    <td width="31%" valign=top style='width:31.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center;line-height:9.75pt'><span
+    style='font-size:8.5pt;font-family:Arial'>accomplistry</span></p>
+    </td>
+    <td width="66%" valign=top style='width:66.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal style='line-height:9.75pt'><span style='font-size:8.5pt;
+    font-family:Arial'>The password is not a dictionary word. Because both the first
+    seven characters and characters 8-12 happen to match dictionary words,
+    LC5's Dictionary crack finds the whole password, even though different
+    dictionary words matched each part.</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width="19%" valign=top style='width:19.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center;line-height:9.75pt'><span
+    style='font-size:8.5pt;font-family:Arial'>severecrimp</span></p>
+    </td>
+    <td width="31%" valign=top style='width:31.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal align=center style='text-align:center;line-height:9.75pt'><span
+    style='font-size:8.5pt;font-family:Arial'>[LC5's Dictionary crack will not
+    recover this password]</span></p>
+    </td>
+    <td width="66%" valign=top style='width:66.0%;padding:3.0pt 3.0pt 3.0pt 3.0pt'>
+    <p class=MsoNormal style='line-height:9.75pt'><span style='font-size:8.5pt;
+    font-family:Arial'>Although the password is formed from two dictionary
+    words, neither the first 7 characters nor the 8-11th characters match words
+    in the dictionary, thus the dictionary crack does not find this password. <u>You
+    must use the brute force crack to recover this type of password.</u></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <h3>Hybrid Crack</h3>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>A
+  Hybrid Crack builds upon the dictionary method (and its results display in
+  the <b>Dictionary Status</b> area) by modifying existing dictionary words to
+  generate additional password attempts. Many users choose passwords such as
+  &quot;bogus1!&quot;, or &quot;1!bogus&quot; in an attempt to create a
+  memorable, yet harder to crack password, based on dictionary words slightly
+  modified with additional numbers and symbols. Another common password
+  substitutes numbers and symbols for letters, such as <b>3</b> for <b>E</b>,
+  or <b>$</b> for <b>S</b>. These types of passwords pass through many password
+  filters and policies, yet still pose organizational vulnerability because
+  they can easily be cracked. </span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>LC5 cracks these passwords
+  in much less time than it takes for a brute force attack. LC5's Hybrid mode
+  checks for number or symbol characters prepended/appended to each word in the
+  dictionary file you have selected. The default setting is <b>0</b> prepend
+  and <b>2</b> append. Character substitutions are also turned off by default. </span></p>
+
+  <p><b><span style='font-size:10.0pt;font-family:Verdana'>Note:</span></b><span
+  style='font-size:10.0pt;font-family:Verdana'> Selecting 3 or more characters
+  to either setting requires a longer audit for the Hybrid crack. Using a
+  dictionary larger than the one LC5 uses by default, or if too many characters
+  are set, the audit may take longer to complete. These features may require
+  significantly longer audits, however, it may still be faster than a full
+  brute force audit. If audit time is a priority, run the hybrid mode twice:
+  once with append/prepend characters turned on and character substitutions
+  turned off, and again with append/prepend turned off and character
+  substitutions turned on. This does not check as many possibilities, but
+  audits are faster. </span></p>
+
+  <h3><a name="precomputed_audits">Pre-Computed Password Audits</a></h3>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The use of pre-computed
+  password hashes allows password audits to be completed within a few minutes,
+  instead of hours or days. And because hashes only have to be computed once,
+  this allows the use of more complex character sets. Versions of LC5 that include
+  precomputed hashes come with a set of hash tables for the Alphanumeric character set.</span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Select the <b>Precomputed
+  Enabled</b> checkbox to turn on pre-computed mode. Click the <b>Hash File
+  List</b> button to select the desired precomputed files from the dialog box.
+  Precomputed mode is now enabled, and will be used against all Windows user
+  accounts. </span></p>
+
+  <h4>When Should I Use A Pre-Computed Audit?</h4>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Pre-computed password tables include trillions of password hashes   that have been computed in advance of the password auditing and recovery process.  The key advantage of these tables is   the reduction in time required to recover an individual password.</span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>During audit and recovery, each account hash is looked up against   the hashes in the pre-computed table.  A matching hash means the password has been recovered.  This process can reduce    recovery time by a significant amount; a single account can take hours in a brute force attack, but only seconds using    the pre-computed password tables.  However, the time savings using pre-computed tables is reduced as the number of     accounts audited or recovered increases.  It is recommended that the pre-computed tables be used for recovery of fewer    than 2,500 accounts.  For larger numbers of accounts, brute force analysis is preferable.</span></p>
+
+  <h3>Brute Force Crack</h3>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The most
+  comprehensive cracking method is the brute force method, which recovers
+  passwords up to 14 characters (Windows NT's password length limit). </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The brute force crack
+  attempts every combination of characters it is configured to use. Your choice
+  of character sets determines how long the brute force crack takes. Common
+  passwords, based on letters and numbers can typically be recovered in about a
+  day using the default character set <b>A-Z and 0-9</b>. Complex passwords, on
+  the other hand, that use characters such as <b>#_}*</b> could take up to
+  hundreds of days to crack on the same machine. </span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>NTLM, DES, and MD5
+  passwords are case-sensitive, and LC5 tries both upper and lower case
+  characters. </span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The difference between
+  the strengths of weak versus strong passwords demonstrates the value of
+  strong passwords in protecting your organization or machine. Using a
+  real-world password auditing tool helps discover the strength of passwords in
+  your organization, and gauge policy decisions such as: </span></p>
+  <ul style='margin-top:0in' type=disc>
+   <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Whether
+       users are following password policies, </span></li>
+   <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+       compliance rate or non-compliance instances with such policies, </span></li>
+   <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+       effectiveness of a password filter, or </span></li>
+   <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Password
+       expiration times. </span></li>
+  </ul>
+  <h2><a name="audit_performance">Audit Method and Performance</a></h2>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>LC5 can
+  audit six different types of password hashes to recover a password: </span></p>
+  <ol style='margin-top:0in' start=1 type=1>
+<br>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>The
+       LM hash, </span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>The
+       NTLM hash, </span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>The
+       LM challenge response, or </span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>The
+       NTLM challenge response. </span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>Unix
+       MD5-encoded password files </span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>Unix
+       DES-encoded password files </span></li>
+<br><br>
+  </ol>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+  auditing options are determined by the on the hashes a user imports. Performance
+  varies between these different approaches. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>If you retrieve user
+  account passwords from a registry, SAM, or Active Directory, you can audit
+  either the LM or the NTLM password hashes. Audit performance in these cases
+  degrades only slightly as the number of hashes increases. </span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Because of its
+  structural weaknesses, the LM hash is the easiest and fastest to audit. LC5
+  defaults to auditing the LM hash unless the user accounts you import lack LM
+  hashes or have LM hashes that correspond to an empty password. Since the LM
+  audit only retrieves passwords in case-insensitive form, a very brief NTLM
+  analysis is performed on any password found with the LM audit in order to
+  determine the proper upper or lower case status of its characters. However,
+  this is much less time consuming than the full NTLM audit described below. </span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The NTLM audit requires
+  more time, because the NTLM hash is based on a stronger algorithm and is case
+  sensitive, expanding the possibilities that must be attempted to recover a
+  password. </span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Where do accounts with
+  empty passwords come from? Machine accounts that cannot be used for login
+  have dollar signs in their user names. User accounts that last had their
+  password changed under MacOS, Novell, or WinFrame (which do not support NTLM
+  hashes) will have empty NTLM passwords. Others are simply accounts that were
+  created, but never assigned a password. </span></p>
+
+  <p><b><span style='font-size:10.0pt;font-family:Verdana'>Note:</span></b><span
+  style='font-size:10.0pt;font-family:Verdana'> Windows 2000 passwords longer
+  than 14 characters have <b>*empty*</b> LM passwords, because the LM hash does
+  not support passwords of this length. </span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Auditing the
+  challenge/response pairs captured from network sniffing can take longer
+  because each password hash is encrypted with a unique challenge. As a result,
+  work performed cracking one password cannot be used again to crack another.
+  In addition to the considerations mentioned above, the time-to-completion
+  increases as you add sniffed password hashes to crack. Ten network
+  challenge/response hashes take 10 times longer to crack than just one.
+  Therefore, this type of cracking should be targeted toward particular
+  passwords to be effective. </span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The DES operations that
+  LC5 uses are CPU-intensive, not memory-intensive. Increasing the quantity and
+  processor speed has the greatest impact on improving LC5's performance. Extra
+  memory has very little impact. </span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>You can boost the performance
+  of an LC5 audit by increasing the priority of the process if the local
+  machine is not performing other applications. To increase process priority:
+  </span></p>
+  <ol style='margin-top:0in' start=1 type=1>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>Launch
+       LC5 </span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>Open
+       the <b>Windows Task Manager</b> by pressing <b>Ctrl-Shift-Esc</b>, or
+       press <b>Ctrl-Alt-Del</b> and choose <b>Task Manager</b>. </span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>Go to
+       the <b>Process tab</b>, right click the process labeled <b>LC5.exe</b> </span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>Choose
+       <b>Set Priority</b>. </span></li>
+  </ol>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Raising the priority
+  boosts LC5's performance at the expense of other running applications.
+  Choosing the highest priority (<b>Realtime</b>) is not advised with LC5, as
+  this can effectively lock up the operating system. </span></p>
+
+  <h3>Beginning Your Audit</h3>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Once
+  your audit is configured in the <b>Session Options</b>, LC5 is ready to
+  perform the audit. Click the <b>Begin Audit</b> button&nbsp;<img border=0
+  width=15 height=15 src="using_files/image003.jpg"> on the toolbar to start
+  your audit. During the audit, status information on the right hand size of
+  the LC5 interface shows the progress of the audit. During dictionary and
+  hybrid audits, the number of dictionary words tried is displayed along with
+  the percentage complete. During the brute force attack, the number of
+  passwords attempted each second under is shown as <b>keyrate</b>. </span></p>
+
+  <h2>Session Options</h2>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>You can modify your
+  Session Options for each Audit from the by clicking Session Options under the
+  Session menu. The following options are available:</span></p>
+
+  <p style='margin-left:.5in;text-indent:-.25in'><span style='font-size:10.0pt;
+  font-family:Symbol'>&middot;</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:Verdana'>Dictionary Crack<br>
+  </span></b><span style='font-size:10.0pt;font-family:Verdana'>Enable the
+  Dictionary Crack Method and location the desired Dictionary List.</span></p>
+
+  <p style='margin-left:.5in;text-indent:-.25in'><span style='font-size:10.0pt;
+  font-family:Symbol'>&middot;</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:Verdana'>Dictionary/Brute
+  Hybrid Crack<br>
+  </span></b><span style='font-size:10.0pt;font-family:Verdana'>Enable the
+  Dictionary/Brute Hybrid Crack Method, chose the number of characters to
+  prepend and append.</span></p>
+  <p style='margin-left:.5in;text-indent:-.25in'><span style='font-size:10.0pt;
+  font-family:Symbol'>&middot;</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:Verdana'>Precomputed<br>
+  </span></b><span style='font-size:10.0pt;font-family:Verdana'>Enable the
+  Precomputed Crack, and chose the Hash File List.</span></p>
+  <p style='margin-left:.5in;text-indent:-.25in'><span style='font-size:10.0pt;
+  font-family:Symbol'>&middot;</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><b><span style='font-size:10.0pt;font-family:Verdana'>Brute Force
+  Crack<br>
+  </span></b><span style='font-size:10.0pt;font-family:Verdana'>Enable the
+  Brute Force Crack, and chose the desired character sets.</span></p>
+  <p align=center style='text-align:center'><img border=0 width=412 height=569
+  src="using_files/image004.jpg"></p>
+  <h2><a name="schedule_audits">Scheduling Password Audits</a></h2>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Administrators
+  can schedule audits scans daily, weekly, monthly, or just once. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>To schedule an audit,
+  select <b>Schedule Audit</b> from the <b>Schedule</b> menu. A dialog box
+  displays a number of options, including the location of hashes, and the
+  frequency of the audits. Click <b>OK</b> when done. The scheduled audit uses
+  the current session options. Double-check the options before scheduling
+  audits. </span></p>
+  <p style='margin-bottom:12.0pt'><span style='font-size:10.0pt;font-family:
+  Verdana'>Choose a descriptive Schedule Name, if there are multiple scheduled
+  audits. The recommended naming scheme includes where the hashes come from,
+  the audit type, and frequency. For example, an audit that pulls the password
+  hashes from a local machine called ABC and performs a daily dictionary audit
+  might be named:</span></p>
+  <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>ABC_Local_Daily_Dictionary</span></p>
+  </blockquote>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Select <b>View
+  Scheduled Tasks</b> from the <b>Schedule</b> menu to view all of the
+  scheduled events. To remove events from the scheduler, click them and press
+  delete. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Scheduled audits are
+  only supported on Windows 2000 and later.</span></p>
+  <p align=center style='text-align:center'><img border=0 width=444 height=347
+  src="using_files/image005.jpg"></p>
+  <h2><a name=remediate>Remediating Poor Passwords</a></h2>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>LC5
+  adds the ability to take action on audited accounts. User accounts can be
+  disabled within LC5, or forced to change their password on the next login. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Click on the user
+  account you wish to remediate. Select <b>Disable Account(s)</b> or <b>Force
+  Password Change</b> from the <b>Remediate</b> menu to take the appropriate
+  action. Multiple accounts can be selected by holding down the shift or
+  control keys while clicking. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>After an audit is
+  completed, the following options are available in the <b>Remediate</b> menu: </span></p>
+  <ul style='margin-top:0in' type=disc>
+   <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Select
+       All Expired Accounts </span></li>
+   <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Select
+       All Cracked Accounts </span></li>
+   <li class=MsoNormal style='margin-bottom:12.0pt'><span style='font-size:
+       10.0pt;font-family:Verdana'>Select All Accounts with Weak Passwords </span></li>
+  </ul>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Use the
+  <b>Disable Account</b> or <b>Force Password Change</b> options on the
+  selected actions for appropriate action. </span></p>
+  <h2><a name=reporting>Reporting</a></h2>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>LC5
+  reports include: </span></p>
+  <ul style='margin-top:0in' type=disc>
+   <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Realtime
+       audit snapshot </span></li>
+   <li class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Export
+       results </span></li>
+  </ul>
+  <p class=MsoNormal style='margin-bottom:12.0pt'><span style='font-size:10.0pt;
+  font-family:Verdana'>While the audit is taking place, the reporting tab
+  offers a snapshot of the audit results in realtime. The reporting tab
+  contains charts and graphs that help quickly identify the security profile of
+  the user accounts. Reports include: </span></p>
+  <ul style='margin-top:0in' type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Audit
+       Method.</span></b><span style='font-size:10.0pt;font-family:Verdana'>
+       Shows the percentage of passwords cracked by dictionary, hybrid,
+       pre-computed, and brute force auditing methods. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Risk
+       Severity.</span></b><span style='font-size:10.0pt;font-family:Verdana'>
+       Profiles the high risk, medium risk, and low risk passwords, as well as
+       the number of empty passwords. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Password
+       character sets.</span></b><span style='font-size:10.0pt;font-family:
+       Verdana'> Shows the breakdown of audited passwords by alphanumeric,
+       alphanumeric + special characters, and alphanumeric + special characters
+       + international characters. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Audit
+       Summary.</span></b><span style='font-size:10.0pt;font-family:Verdana'>
+       Shows the number of accounts and domains audited. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Password
+       Statistics.</span></b><span style='font-size:10.0pt;font-family:Verdana'>
+       Shows the number of locked, disabled, expired, and old passwords. </span></li>
+   <li class=MsoNormal style='margin-bottom:12.0pt'><b><span style='font-size:
+       10.0pt;font-family:Verdana'>Password Length Distribution.</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'> Shows the breakdown of
+       passwords by length. </span></li>
+  </ul>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Upon completion
+  of the audit, results can be exported by selecting <b>Export-&gt;Session</b>,
+  from the <b>File</b> menu. Results are exported in tab-delimited format to
+  load into a spreadsheet format. LC5 exports columns that are visible for the
+  current session. </span></p>
+  </td>
+ </tr>
+</table>
+
+<p><u5:p><u8:p><b><span style='font-size:10.0pt;font-family:Verdana'>Previous:</span></b><span
+style='font-size:10.0pt;font-family:Verdana'> <a href="wizard.html">Quick Start
+with the LC5 Wizard</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</u8:p><b>Next:</b> </span><a href="commands.html"><span style='font-size:10.0pt;
+font-family:Verdana'>LC5 Command Reference</span></a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

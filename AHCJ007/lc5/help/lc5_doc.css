@@ -1,0 +1,14 @@
+A:link {color : #0033CC}
+A:active {color : #FF6633}
+A:visited {color : #336666}
+
+table, body, td { font-family: Verdana, Arial, Helvetica; font-size : 13px; }
+
+h1 { font-family: Verdana, Arial, Helvetica; font-size : 24px; }
+h2 { font-family: Verdana, Arial, Helvetica; font-size : 18px; }
+h3 { font-family: Verdana, Arial, Helvetica; font-size : 14px; }
+h4 { font-family: Verdana, Arial, Helvetica; font-size : 13px; }
+
+.mono { font-family: monospace }
+.fine {font: 11px/13px geneva, arial, helvetica, sans-serif;}
+.small {font-size : 11px;}

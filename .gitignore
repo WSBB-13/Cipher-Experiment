@@ -1,0 +1,4 @@
+DEBUG/
+*.exe
+*.chm
+.DS_Store

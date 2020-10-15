@@ -1,0 +1,21 @@
+0:00:00:00 Starting a new session
+0:00:00:00 Loaded a total of 3 password hashes with 3 different salts
+0:00:00:00 - Hash type: FreeBSD MD5 (lengths up to 15)
+0:00:00:00 - Algorithm: 32/32
+0:00:00:00 - Configured to use otherwise idle processor cycles only
+0:00:00:00 Proceeding with wordlist mode
+0:00:00:00 - Wordlist file: password.lst
+0:00:00:00 - No word mangling rules
+0:00:00:00 + Cracked root
+0:00:00:00 + Cracked test
+0:00:00:00 Session completed
+0:00:00:00 Starting a new session
+0:00:00:00 Loaded a total of 3 password hashes with 3 different salts
+0:00:00:00 Remaining 1 password hash
+0:00:00:00 - Hash type: FreeBSD MD5 (lengths up to 15)
+0:00:00:00 - Algorithm: 32/32
+0:00:00:00 - Configured to use otherwise idle processor cycles only
+0:00:00:00 Proceeding with wordlist mode
+0:00:00:00 - Wordlist file: password.lst
+0:00:00:00 - No word mangling rules
+0:00:00:01 Session completed

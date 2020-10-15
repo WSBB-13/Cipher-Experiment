@@ -1,0 +1,159 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <title>LC5 Documentation: Appendix</title>
+   <base target="_self">
+<link rel="stylesheet" type="text/css" href="lc5_doc.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="550">
+	<tr>
+		<td class="body">
+<h1>Appendix</h1>
+
+<h2><a NAME="support">Technical Support</a></h2>
+Registered LC5 users receive free technical support by email. To receive technical
+support, you must include the Serial Number and Unlock Code from LC5's
+<i>Help ... About</i> dialog in your email's Subject line, separated by two colons.
+For example, a valid subject line might be:
+<blockquote>
+	<div class="mono">Subject: Using International Dictionaries?&nbsp; 1e15f863::13fc7b05</div>
+</blockquote>
+Registered users can send technical support questions to <a href="mailto:lc5@atstake.com">lc5@atstake.com</a>.
+<p>
+Technical support is not provided for non-registered users.
+
+<h2><a NAME="system_requirements">System Requirements</a></h2>
+<UL>
+<li>Windows 2003, XP, 2000, NT
+<li>1 GHz CPU
+<li>50MB  disk space  (1.5GB  for pre-computed password tables)
+<li>CD Drive
+<li>Account with Administrator Privileges
+</UL>
+<b>Supported Password Environments</b>
+<UL>
+<li>Windows 2003, XP, 2000, NT
+<li>UNIX (Check the <a href="http://www.atstake.com/lc">LC website</a> for supported versions)
+</UL>
+<p>   
+When installing LC5, you must be logged into an account that has administrator
+privileges. LC5 runs on Microsoft Windows operating systems, and is
+tested on Windows NT, Windows 2000, and Windows XP. System requirements are the same as
+the minimum requirements for the operating system.
+
+<h2><a NAME="lc5_dependencies">LC5 Dependencies</a></h2>
+LC5 relies on WinPcap software for packet capture and network analysis.
+This package has shown some incompatibilities with PCMCIA network cards,
+but good compatibility with other cards.  LC5 uses the currently installed version of WinPcap.
+
+The latest version of WinPcap can be downloaded at <a href="http://winpcap.polito.it/">http://winpcap.polito.it/</a>
+<p>
+Copyright (c) 1999 - 2004 NetGroup, Politecnico di Torino (Italy).  All rights reserved.
+<p>
+WinPcap is further derived from LibPcap software, copyright (c) 1988,
+1989, 1991, 1994, 1995, 1996, 1997 The Regents of the University of California.
+All rights reserved.
+<p>
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that:
+<ol>
+	<li>Source code distributions retain the above copyright notice and this 
+		paragraph in its entirety
+	<li>Distributions including binary code include the above copyright notice 
+		and this paragraph in its entirety in the documentation or other materials 
+		provided with the distribution
+	<li>All advertising materials mentioning features or use of this software display
+		the following acknowledgements: "This product includes software developed
+		by the Politecnico di Torino, and its contributors;" and "This product
+		includes software developed by the University of California, Lawrence Berkeley
+		Laboratory and its contributors."
+</ol>
+
+<h2><a NAME="word_list_format">Word List Format</a></h2>
+You may use a word list of your own for dictionary cracks. To do so, your
+word list must consist of a single word on each line of a simple text-based
+file, as in the following example:
+<blockquote>apple
+	<br>dog
+	<br>cat
+	<br>peach
+</blockquote>
+The word list is not case sensitive, and will recognize both NT and Unix
+formatted text files.
+<h2><a NAME="resources">Resources</a></h2>
+This section lists tools and information that may help in your password
+auditing efforts. As always, exercise the appropriate diligence in evaluating
+and using these resources.
+<p>
+<blockquote>
+<b>Password security discussion areas</b>
+<ul>
+	<li><a href="http://www.ntbugtraq.com/" target="_blank">NT bugtraq.com</a>
+	<li>The Microsoft focus area at <a href="http://www.securityfocus.com/" target="_blank">SecurityFocus.com</a>
+	<li>Usenet newsgroups on Windows NT administration:
+		<ul>
+			<li>comp.os.ms-windows.nt.admin.security
+			<li>comp.os.ms-windows.nt.admin.networking
+			<li>comp.os.ms-windows.nt.admin.misc
+		</ul>
+</ul>
+<p>
+<b>pwdump3</b><br>
+As mentioned above, <a href="http://www.ebiz-tech.com/html/pwdump.html" target="_blank">pwdump3</a>
+updates <a href="http://www.webspan.net/~tas/pwdump2/" target="_blank">pwdump2</a>
+to allow remote access to the password database on SYSKEY protected systems,
+and is available for free from e-business technology, Inc. Its output is
+a similar format to the .lc format used by L0phtCrack 2.5. LC5 can import
+files that <b>pwdump3</b> outputs.
+<p>
+<b>Password&nbsp;<a NAME="reset">Reset Utility</a></b><br>
+You must have access to at least one administrator
+account on a Windows 2000 machine in order to obtain password hashes from
+that machine, whether you use <b>pwdump3</b>, or LC5's own <b>Import From Local Machine</b> feature.
+The only other way to access the machine might be through a password
+reset utility such as the following: <a href="http://home.eunet.no/~pnordahl/ntpasswd/" target="_blank">http://home.eunet.no/~pnordahl/ntpasswd/</a>.
+<p>
+<b>Source Code</b><br>
+L0phtCrack 1.5 is available in an <a href="http://www.atstake.com/lc/download.html" target="_blank">open
+source version</a>. 
+<p>
+<b>Note:</b> LC5 is approximately four times faster than
+the L0phtCrack 1.5, due to optimization. The source version is essentially
+a&nbsp; researcher’s version, made available to share information about
+how the password auditing works. It is not intended as an audit tool for
+production environments.
+<p>
+<b><a NAME="ntfsdos">NTFSDOS</a></b><br>
+<a href="http://www.sysinternals.com/ntw2k/freeware/NTFSDOS.shtml" target="_blank">NTFSDOS</a>
+is useful free utility for booting your system from a floppy to gain read-only
+access to your hard disk's files. This can be useful for accessing a SAM
+file (although SYSKEY-protected SAMs will not be auditable in LC5).
+</blockquote>
+<p>
+<h2><a NAME="included_software">Included Software</a></h2>
+LC5 incorporates the following third-party software:
+<ul>
+<li>
+PuTTY, copyright 1997-2004 Simon Tatham.  Portions copyright
+Robert de Bath, Joris van Rantwijk, Delian, Delchev, Andreas Schultz,
+Jeroen Massar, Wez Furlong, Nicolas Barry, Justin Bradford, Ben Harris,
+and CORE SDI S.A.<br>
+<br>
+<li>Software developed by the OpenSSL Project for use in the OpenSSL Toolkit (<a href="http://www.openssl.org/">http://www.openssl.org/</a>).  Copyright (c) 1998-2003 The OpenSSL Project.  All rights reserved. 
+</ul>
+<h2><a NAME="credits">Credits</a></h2>
+LC5 was developed by Ian Melven and Fred Bret-Mounet.&nbsp; Previous L0phtCrack authors are
+Rob Cheyne, Dildog, Chris Wysopal, and Peiter Mudge Zatko.
+<p>&nbsp;<p>
+		</td>
+	</tr>
+</table>
+
+<p><u5:p><u8:p><span style='font-size:10.0pt;font-family:Verdana'><b>Previous:</b> <a href="generator.html">Hash Table Generator</a></p>
+
+
+</body>
+</html>

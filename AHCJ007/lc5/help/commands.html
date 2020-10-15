@@ -1,0 +1,389 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<base target="_self">
+<title>LC5 Documentation: LC5 Command Reference</title>
+<link rel=Stylesheet type="text/css" media=all href="lc5_doc.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.mono, li.mono, div.mono
+	{font-size:12.0pt;}
+p.fine, li.fine, div.fine
+	{font-size:8.5pt;}
+p.small, li.small, div.small
+	{font-size:8.5pt;
+	font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body bgcolor=white lang=EN-US link="#0033CC" vlink="#336666">
+
+<div class=Section1>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=550
+ style='width:412.5pt'>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <h1>LC5 Command Reference</h1>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The following sections
+  explore the commands available from the toolbar. </span></p>
+  <h2>File ...</h2>
+  <ul type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>File
+       New Session</span></b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img
+       width=19 height=19 src="commands_files/image001.jpg"><br>
+       This creates a new LC5 audit session. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>File
+       Open Session</span></b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img
+       width=20 height=20 src="commands_files/image002.jpg"><br>
+       This command opens a previously stored LC5 session from a *.lcs file. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Close
+       Session</span></b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img
+       width=20 height=19 src="commands_files/image003.jpg"><br>
+       This stops and closes the current audit session. You are prompted about
+       whether to save the session so it can be continued at a later time. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>File
+       Save and Save As</span></b><span style='font-size:10.0pt;font-family:
+       Verdana'>&nbsp;<img width=21 height=19 src="commands_files/image004.jpg"><br>
+       You may save the session currently opened to preserve the current state
+       of your audit. This allows you stop and continue your audit at a later
+       time, or move it to another machine without losing your progress. Save
+       and Save As commands save the current state of the passwords, and
+       whether they are uncracked, partially cracked or cracked in the LC5
+       (*.lcs) format. The *.lcs file can be used later for continued cracking,
+       or to restart a new session using the same target password hashes, but
+       different audit options. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Export</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img width=20
+       height=19 src="commands_files/image005.jpg"><br>
+       There are two types of export, Session and Password File. Session
+       exports provide the ability to export all visible columns into a
+       tab-delimited file. This is helpful to sort and modify the results, reformat
+       them for presentation, or print them out. Password File Exports save the
+       list of cracked passwords to be used in a later audit. When exporting in
+       either mode, keep any exposed passwords in a secure location. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Import<img
+       width=22 height=19 src="commands_files/image006.jpg"><br>
+       </span></b><span style='font-size:10.0pt;font-family:Verdana'>You can
+       import previous LC saved sessions into LC5 for continued saved audits.</span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>LC5
+       Wizard</span></b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img
+       width=24 height=19 src="commands_files/image007.jpg"><br>
+       Launch the Wizard to configure common settings for an LC5 audit. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Create
+       Remote Agent</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+       You can embed a public key in the LC agent used for remote import of
+       Windows passwords. If the agent is installed manually, you must embed a
+       public key first. </span></li>
+  </ul>
+  <p style='margin-left:.5in'><span style='font-size:10.0pt;font-family:Verdana'>To
+  install the LC agent, copy it to the remote machine and run <br>
+  <b>lcagent.exe /install</b>. </span></p>
+  <p style='margin-left:.5in'><span style='font-size:10.0pt;font-family:Verdana'>To
+  remote the LC agent, run <br>
+  <b>lcagent.exe /remove</b> </span></p>
+  <p style='margin-left:.5in'><span style='font-size:10.0pt;font-family:Verdana'>on
+  the remote machine. </span></p>
+  <p style='margin-left:.5in'><span style='font-size:10.0pt;font-family:Verdana'>When
+  removing, a display warns that communication with existing agents will be
+  impacted by removing (since your public key will not match other keys). </span></p>
+  <p style='margin-left:.5in'><span style='font-size:10.0pt;font-family:Verdana'>When
+  removed, LC5 detects that the agent has a different public key than you do,
+  and asks you if you want to fix this (which it does by deleting the agent,
+  embedding the current public key in the agent, and then reinstalling it over
+  the network). </span></p>
+  <ul type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Preferences</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'><br>
+       Configures the default settings for future auditing sessions. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Exit</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'><br>
+       Exit terminates any running crack session and exits the program. </span></li>
+  </ul>
+  <h2>View ...</h2>
+  <ul type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Toolbar</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'>&nbsp;<br>
+       Show or hide the LC5 Toolbar. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Select
+       Visible Columns</span></b><span style='font-size:10.0pt;font-family:
+       Verdana'><br>
+       Select the columns visible during the audit. The following items are
+       available: </span></li>
+   <ul type=circle>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Password
+        Domains</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        For Windows machines, this feature displays the NT domain where the
+        password came from, if available. This is helpful when working with
+        large lists of user accounts. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Password
+        Hashes</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        Viewing the password hashes is interesting and useful to some people,
+        and merely clutter to others. Use this option to toggle their display
+        on or off. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Account
+        Lockout Status</span></b><span style='font-size:10.0pt;font-family:
+        Verdana'><br>
+        For Windows user accounts only. Indicates whether or not the user
+        account is locked out. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Password
+        Never Expires</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        For Windows user accounts only. Indicates that the user's password
+        never expires. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Audited
+        LM Passwords</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        The administrator can turn the display of audited passwords on or off.
+        Use <b>View ... Audit Times</b> to see whether a password has been
+        cracked when password display is turned off. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Audit
+        Times</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        Displays the amount of time LC5 took to crack each password. The value
+        provides an approximate quantitative measure of how robust a user's
+        password is. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Account
+        Disabled Status</span></b><span style='font-size:10.0pt;font-family:
+        Verdana'><br>
+        For Windows user accounts only. Indicates that the user's account is
+        disabled. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Cracking
+        Method</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        The cracking method helps determine which users have weak passwords at
+        a glance. Sort by the Audit Method column heading to see if the
+        passwords are cracked by the User Information, Dictionary, Hybrid, or
+        Brute Force attacks, or not at all. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Audited
+        Passwords</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        Shows the clear text passwords after they are cracked. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Password
+        Age</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        Shows how long since the password was last changed. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Password
+        Expired</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        For Windows user accounts only. Indicates that the user's password is
+        expired. </span></li>
+   </ul>
+  </ul>
+<br>
+  <p class=MsoNormal style='margin-left:.75in'><span style='font-size:10.0pt;
+  font-family:Verdana'><img width=416 height=230
+  src="commands_files/image008.jpg"></span></p>
+  <ul type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Visible
+       Notification</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+       Displays an alert dialog when the audit completes, even if you're
+       working in another application. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Reset
+       Warning Dialogs</span></b><span style='font-size:10.0pt;font-family:
+       Verdana'><br>
+       Displays and disables warning dialogs. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Minimize
+       to Tray</span></b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img
+       width=22 height=19 src="commands_files/image009.jpg"><br>
+       Minimizes the program to the system tray. The program window is
+       reactivated by clicking on the small icon. This is useful when you are
+       intending to crack for several days. If the SMB Packet Capture window is
+       open, it is minimized also. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Hide</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'>&nbsp;<br>
+       Hides the program window completely. It does not show as an application
+       in the task manager, although LC5 continues to appear as a process. You
+       can make the program visible again using the <b>Ctrl+Alt+L</b> key
+       combination. If the Sniffer window is open, it is also hidden. </span></li>
+  </ul>
+  <h2>Session</h2>
+  <ul type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Import
+       ...</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+       This option opens a dialog box allowing the user to choose where the
+       password hashes originate. </span></li>
+   <ul type=circle>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Import
+        From Local Machine</span></b><span style='font-size:10.0pt;font-family:
+        Verdana'><br>
+        This command imports password hashes used by the operating system
+        currently running. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Import
+        From Remote Machine</span></b><span style='font-size:10.0pt;font-family:
+        Verdana'><br>
+        Displays a list box to add a computer name or IP address. Select
+        multiple remote Windows or Unix machines to be added. Administrator
+        privileges and remote registry access are required to dump the password
+        hashes in this method. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Import
+        From SAM file</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        Imports password hashes stored in a SAM file. Note that a SAM file is
+        locked and inaccessible while the operating system that uses it is in
+        use. You may copy a SAM file by booting another operating system such
+        as DOS (running NTFSDOS), or Linux (with NTFS file system support) and
+        retrieving it from the target system, or you may retrieve it from a
+        backup tape, from a Windows NT Emergency Repair Disk, or from a repair
+        directory on the system hard drive. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Import
+        From LC4 file</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+        Imports password hashes from a saved LC4 session. The imported password
+        hashes become part of the session currently open, but do not affect the
+        Session Options. </span></li>
+    <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Import
+        From PWDUMP file</span></b><span style='font-size:10.0pt;font-family:
+        Verdana'><br>
+        This imports the output of a pwdump session into LC5.</span></li>
+   </ul>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Import
+       From Sniffer</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+       This command launches the network packet capture window. SMB packet
+       capture monitors your ethernet for SMB network authentication packets.
+       When an authentication session is captured, it will display the
+       authentication parameters: username, challenge, and hashes in the
+       window. </span></li>
+  </ul>
+  <p style='margin-left:.4in'><span style='font-size:10.0pt;font-family:Verdana'>The
+  contents of the window can be saved at any time to a <b>*.lcs</b> file using
+  the <b>Save Capture</b> button, or they can be cleared using the <b>Clear
+  Capture</b>. button. The capture session is terminated when the window is
+  closed, or by pressing <b>Done</b>. </span></p>
+  <ul type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Begin
+       Audit</span></b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img
+       width=20 height=19 src="commands_files/image010.jpg"><br>
+       Starts the audit engine on the password hashes you have loaded, based on
+       your configuration of the <b>Session Options</b>. A progress display
+       shows the status. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Pause
+       Audit</span></b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img
+       width=18 height=20 src="commands_files/image011.jpg"><br>
+       Halts the current audit, saving any progress that has been made. You may
+       continue the audit where you left off at a later time by choosing to <b>Begin
+       Audit</b> again. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Stop
+       Audit</span></b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img
+       width=22 height=19 src="commands_files/image012.jpg"><br>
+       After a warning dialog, this command stops the current session,
+       discarding any brute force progress already made. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'><!--
+	<LI><B>Brute LM</B>&nbsp;<img SRC="images/brute_LM.gif" NOSAVE BORDER=1 height=15 width=17><br>
+		All four brute force configuration options below determine <i>what</i>
+		gets brute-forced, since the approach varies with each method. When possible,
+		LC5 tries to determine the best choice to make. So, for example, if you
+		have obtained both LM and NTLM hashes for each password you want to audit,
+		LC5 will brute-force the LM hash since this is the fastest way to crack
+		the passwords. If you have some passwords that have
+		only LM hashes and others that have only NTLM hashes, neither
+		approach will give you all the passwords. In this case, LC5 defaults to
+		brute forcing the LM hash, but you can choose to switch it to brute forcing
+		the NTLM hash by clicking the appropriate Toolbar or Session.. command.
+	<p>
+	<LI><B>Brute NTLM</B>&nbsp;<img SRC="images/brute_NTLM.gif" NOSAVE BORDER=1 height=16 width=17><p>
+	<LI><B>Brute LM Challenge/Response</B>&nbsp;<img SRC="images/brute_LM_ch.gif" NOSAVE BORDER=1 height=17 width=18><p>
+	<LI><B>Brute NTLM Challenge/Response</B>&nbsp;<img src="images/ntlm_pair.gif" NOSAVE width="18" height="17" alt="" border="1"><p>
+
+-->Session Options</span></b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img
+       width=24 height=19 src="commands_files/image013.jpg"><br>
+       Opens the <b>Auditing Options For This Session</b> dialog box,
+       containing the different settings for modifying how LC5 tries to crack
+       the password hashes. These settings are discussed in greater detail
+       under the section <a href="using.html"><b>Using LC5</b></a>. </span></li>
+  </ul>
+<br>
+  <p class=MsoNormal align=center style='margin-left:.25in;text-align:center'><span
+  style='font-size:10.0pt;font-family:Verdana'><img border=0 width=412
+  height=569 src="commands_files/image014.jpg"></span></p>
+  <h2>Schedule</h2>
+  <ul type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Schedule
+       Audit</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+       Dialog to schedule regular password audits. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>View
+       Scheduled Tasks</span></b><span style='font-size:10.0pt;font-family:
+       Verdana'><br>
+       Displays all the scheduled password audits. Items can be removed from
+       the list by clicking on them and pressing delete. </span></li>
+  </ul>
+  <h2>Remediate</h2>
+  <ul type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Disable
+       Account(s)</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+       Disables the selected accounts. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Force
+       Password Change</span></b><span style='font-size:10.0pt;font-family:
+       Verdana'><br>
+       Settings to force a selected user account to change their passwords on the
+       next login. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Select
+       All Expired Accounts</span></b><span style='font-size:10.0pt;font-family:
+       Verdana'><br>
+       Selects all accounts with expired passwords, which can be disabled or
+       forced to change their password on the next login. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Select
+       All Cracked Accounts</span></b><span style='font-size:10.0pt;font-family:
+       Verdana'><br>
+       Selects all accounts that have been cracked, which can be disabled or
+       forced to change their password on the next login. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Select
+       All Accounts With Weak Passwords</span></b><span style='font-size:10.0pt;
+       font-family:Verdana'><br>
+       Selects all accounts with weak passwords, which can be disabled or
+       forced to change their password on the next login. </span></li>
+  </ul>
+  <h2>Help</h2>
+  <ul type=disc>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Documentation</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'><br>
+       Opens this help file. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>LC5
+       Website</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+       Launches your browser to the LC5 website where you can find updates and
+       additional program information as it becomes available. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>Online
+       FAQ</span></b><span style='font-size:10.0pt;font-family:Verdana'><br>
+       Launches your browser to the online FAQ about LC5. </span></li>
+   <li class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana'>About
+       LC5</span></b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<img
+       border=0 width=22 height=20 src="commands_files/image015.jpg"><br>
+       Displays the program version information, Serial Number, and Unlock Code
+       (for a registered copy of LC5). </span></li>
+  </ul>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p><u5:p><u8:p><b><span style='font-size:10.0pt;font-family:Verdana'>Previous:</span></b><span
+style='font-size:10.0pt;font-family:Verdana'> <a href="using.html">Using LC5</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</u8:p><b>Next:</b> <a href="smb_capture.html">Technical Explanation of Network
+SMB Capture</a></span></p>
+
+</div>
+
+</body>
+
+</html>

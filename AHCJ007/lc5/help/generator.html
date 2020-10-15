@@ -1,0 +1,158 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<base target="_self">
+<title>LC5 Documentation: Using LC5</title>
+<link rel=Stylesheet type="text/css" media=all href="lc5_doc.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-weight:bold;}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:10.5pt;
+	font-weight:bold;}
+h4
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#0033CC;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#336666;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.mono, li.mono, div.mono
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;}
+p.fine, li.fine, div.fine
+	{margin-right:0in;
+	margin-left:0in;
+	line-height:9.75pt;
+	font-size:8.5pt;}
+p.small, li.small, div.small
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:8.5pt;
+	font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body bgcolor=white lang=EN-US link="#0033CC" vlink="#336666">
+
+<div class=Section1>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=550
+ style='width:412.5pt'>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <h1>Using Hash Table Generator</h1>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The Hash Table
+  Generator is included in your LC5 installation. It is able to generate
+  password hashes, however the process requires several days.</span></p>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Verdana'><img width=497 height=436
+  src="generator_files/image001.jpg"></span></p>
+<font face="verdana">
+<h2><a name="configuration">Configuration</h2></a>
+<p><span style='font-size:10.0pt;font-family:Verdana'>
+Configuration for the Hash Generator determines what types of passwords to look for, and ultimately determines how long it will take to crack the passwords. 
+<p><span style='font-size:10.0pt;font-family:Verdana'> For <b>Passwords</b>, select a <b>Character Set</b> for the Hash Generator to crack. The following Character Sets are available:
+<UL>
+<li><b>All</b> - Searches all possible passwords using characters and symbols. 
+<li><b>Alpha</b> - Searches passwords made up of the 26-character alphabet.
+<li><b>Alpha-Numeric</b> - Searches passwords made up of the 26 charcater alphabet and all numbers 0-9.
+<li><b>Alpha-Numeric-Symbol14</b> - Searches passwords with a maximum lenght of 14 characters made up of the 26 character alphabet, all numbers 0-9, and all symbols.
+<li><b>Alpha-Space</b> - Searches passwords made up of the 26 character alphabet and spaces. 
+</UL>
+<p><span style='font-size:10.0pt;font-family:Verdana'>Modify the length of the cracked passwords by changing the Minimum and Maximum length from 1-7. The characters sets are edited in the <b>charset.txt</b> file. Use the Edit button to bring up this file.
+<p><span style='font-size:10.0pt;font-family:Verdana'>The Chain Length and Count is modified with values, and you can change the number of tables from 1-99. Click the check box to Sort Tables.
+<h2><a name="results">Results</h2></a>
+The Generator's results are posted in a number of categories:
+<UL>
+<li><b>Key Space</b> - 
+<li><b>Total Success Rate</b> - Measured in percentage of success.
+<li><b>Estimated Total Size</b> - The size of the generated file the output for results.
+</UL>
+<h3>Table</h3>
+The results of the table is measured as follows:
+<UL>
+<li><b>Success Rate per Table</b> - Measured in percentage.
+<li><b>Estimated Table Size</b> - Displays the size of the table.
+</ul>
+<h2><a name="batch">Batch File</h2></a>
+You can dictate the Batch File Location and the Name of the Batch by typing in an address or click the button and Browse to the desired location. 
+<br>
+<UL>
+<li><b>Generate</b> - Generates a hash table.
+<li><b>Run</b> - Executes the Table Generator.
+<li><b>Edit...</b> - Edit the .bat file in Notepad. 
+<li><b>Quit</b> - Exits the program.
+</ul>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+<p><u5:p><u8:p><b><span style='font-size:10.0pt;font-family:Verdana'>Previous:</span></b><span
+style='font-size:10.0pt;font-family:Verdana'> <a href="organization.html">Password
+Security in Your Organization</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</u8:p><b>Next:</b> </span><a href="appendix.html"><span style='font-size:10.0pt;
+font-family:Verdana'>Appendix</span></a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1186 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<base target="_self">
+<title>LC5 Documentation: Getting Started</title>
+<link rel=Stylesheet type="text/css" media=all href="lc5_doc.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Webdings;
+	panose-1:5 3 1 2 1 5 9 6 7 3;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-weight:bold;}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:10.5pt;
+	font-weight:bold;}
+h4
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-weight:bold;}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+a:link, span.MsoHyperlink
+	{color:#0033CC;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#336666;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.mono, li.mono, div.mono
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;}
+p.fine, li.fine, div.fine
+	{margin-right:0in;
+	margin-left:0in;
+	line-height:9.75pt;
+	font-size:8.5pt;}
+p.small, li.small, div.small
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:8.5pt;
+	font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<u1:LatentStyles DefLockedState="false" LatentStyleCount="156"></u1:LatentStyles>
+</head>
+
+<body bgcolor=white lang=EN-US link="#0033CC" vlink="#336666">
+
+<div class=Section1>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=550
+ style='width:412.5pt'>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <h1>Getting Started</h1>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Security experts from
+  industry, government, and academia agree that weak passwords represent one of
+  the ten most critical internet security threats,<a name="_ftnref1"></a><a
+  href="#_ftn1"><sup>1</sup></a> and are receiving more attention as a source of
+  vulnerability, both on client desktop computers and in networks. LC5
+  identifies and assesses password vulnerability over local machines and
+  networks in a streamlined application, with built-in reports and remediation
+  tools.<u8:p></u8:p></span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>LC5 uses a variety of
+  sources and methods to retrieve passwords from the operating system. Feedback
+  about the strength of passwords is based upon the types of audit required to
+  recover the password, and the length of time required for the audit. LC5 is a
+  state of the art tool for password auditing and recovery that serves to guide
+  organizational policies and procedures.</span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>System administrators
+  audit passwords to determine the strength of the passwords used on client
+  machines and network access. Weak passwords, such as a password using all
+  lower case letters, represent vulnerability points for any organization.
+  Administrators use corporate password policies and filtered password
+  generators to improve the quality of passwords used in their organizations.
+  But without testing the passwords against a real world password auditor, the
+  administrator risks the chance passwords can be uncovered by an external
+  attacker or malicious insider. <u5:p></u5:p></span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>In other cases, LC5 can
+  be used to streamline the migration or upgrading of users from one
+  authentication system to another. Administrators can also use LC5 to recover
+  lost or forgotten passwords, and permit re-entry to a locked out system.</span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>LC5 is available in the
+  following versions:</span></p>
+  <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;border:none'>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border:solid windowtext 1.0pt;
+    border-right:none;background:#E6E6E6;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Verdana;
+    text-transform:uppercase'><br>FEATURE<br><br></span></b></p>
+    </td>
+    <td width=103 valign=top style='width:77.3pt;border-top:solid windowtext 1.0pt;
+    border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;
+    background:#E6E6E6;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><b><span
+    style='font-size:10.0pt;font-family:Verdana;text-transform:uppercase'><br>BASIC<br><br></span></b></p>
+    </td>
+    <td width=144 valign=top style='width:108.05pt;border-top:solid windowtext 1.0pt;
+    border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+    background:#E6E6E6;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><b><span
+    style='font-size:10.0pt;font-family:Verdana;text-transform:uppercase'><br>PROFESSIONAL<br><br></span></b></p>
+    </td>
+    <td width=147 valign=top style='width:110.3pt;border-top:solid windowtext 1.0pt;
+    border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+    background:#E6E6E6;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><b><span
+    style='font-size:10.0pt;font-family:Verdana;text-transform:uppercase'><br>ADMINISTRATOR<br><br></span></b></p>
+    </td>
+    <td width=91 valign=top style='width:68.3pt;border-top:solid windowtext 1.0pt;
+    border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+    background:#E6E6E6;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><b><span
+    style='font-size:10.0pt;font-family:Verdana;text-transform:uppercase'><br>SITE<br><br></span></b></p>
+    </td>
+    <td width=115 valign=top style='width:86.45pt;border:solid windowtext 1.0pt;
+    border-left:none;background:#E6E6E6;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><b><span
+    style='font-size:10.0pt;font-family:Verdana;text-transform:uppercase'><br>CONSULTANT<br><br></span></b></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Password
+    assessment</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Password
+    recovery</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Dictionary
+    support</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Hybrid
+    support</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Brute
+    force support</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>International
+    character support</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Wizard-based
+    GUI</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Password
+    quality scoring</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Remediation</b>
+    </span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Windows
+    support</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt ;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>UNIX
+    support</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>&nbsp;</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Enhanced
+    reporting</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>&nbsp;</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Remote
+    system scans</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>&nbsp;</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Pre-computed
+    passwords</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Assessment
+    scheduling</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Site-wide
+    installations</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Multi-client
+    assessments</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt'>&nbsp;</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Perpetual
+    use</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:8.0pt;font-family:Verdana'>1 year</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=156 valign=top style='width:117.3pt;border-top:none;border-left:
+    solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
+    solid windowtext 1.0pt;background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><b>Unlimited
+    accounts</b></span></p>
+    </td>
+    <td width=103 style='width:77.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:8.0pt;font-family:Verdana'>250</span></p>
+    </td>
+    <td width=144 style='width:108.05pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=147 style='width:110.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=91 style='width:68.3pt;border:none;border-bottom:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+    <td width=115 style='width:86.45pt;border-top:none;border-left:none;
+    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    background:#F3F3F3;padding:0in 5.4pt 0in 5.4pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+    style='font-size:5.0pt;font-family:Webdings'>n</span></p>
+    </td>
+   </tr>
+  </table>
+  <h2><a name=install>Installing LC5 </a></h2>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>To install LC5:<u8:p></u8:p></span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>1.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>LC5 is distributed in a self-installing executable
+  distribution file that can be downloaded for free at </span><a
+  href="http://www.atstake.com/lc"><span style='font-size:10.0pt;font-family:
+  Verdana'>http://www.atstake.com/lc</span></a><span style='font-size:10.0pt;
+  font-family:Verdana'>.</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>2.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>Save the .ZIP file to your desktop.</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>3.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>Open the .ZIP file and extract the contents to a temp
+  directory.</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>4.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>In the temp directory, click the <b>lc5set.exe</b> file.
+  InstallShield starts a standard installation process. At the Welcome screen,
+  click <b><u>N</u>ext</b>.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in'><center><img border=0 width=377
+  height=295 src="getting_started_files/image002.jpg"></center></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>5.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>InstallShield copies LC5 files on to your system.</span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+  font-family:Verdana'><center><img border=0 width=288 height=113
+  src="getting_started_files/image004.jpg"></center></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>6.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>Read the License Agreement screen, then click <b><u>Y</u>es</b>
+  to agree.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+  font-family:Verdana'><center><img border=0 width=379 height=290
+  src="getting_started_files/image012.jpg"></center></span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>7.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>InstallShield installs LC5 in a default installation
+  location:</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:1.0in'><span style='font-size:10.0pt;
+  font-family:Verdana'>\Program Files\@stake\LC5</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in'><span style='font-size:10.0pt;
+  font-family:Verdana'>or you may <b><u>B</u>rowse</b> to choose a different
+  location. Click <b><u>N</u>ext</b> when ready.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in'><center><img border=0 width=379
+  height=290 src="getting_started_files/image014.jpg"></center></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>8.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>Choose the type of setup for LC5. The default is <b>Typical</b>,
+  which installs the most common options. You may also choose <b>Compact</b> to
+  install the minimum required options, or Custom to choose specific options.
+  Click <b>Next</b> when ready.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+  font-family:Verdana'><center><img border=0 width=379 height=290
+  src="getting_started_files/image016.jpg"></center></span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>9.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>A shortcut to the LC5 executable is installed in the
+  Programs folder under the Start menu. The default folder name is LC5. You may
+  choose a different name. Click <b><u>N</u>ext</b> when ready.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+  font-family:Verdana'><center><img border=0 width=379 height=290
+  src="getting_started_files/image018.jpg"></center></span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>10.</span><span
+  style='font-size:7.0pt'>&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>InstallShield now installs components on to your system.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>11.</span><span
+  style='font-size:7.0pt'>&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>Click Finish when InstallShield completes the
+  installation.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in'><center><img border=0 width=379
+  height=290 src="getting_started_files/image020.jpg"></center></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>12.</span><span
+  style='font-size:7.0pt'>&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>LC5 is now installed on your system. Click the Start
+  button, and go to the Programs folder to run LC5. <u5:p></u5:p></span></p>
+
+  <h2>Uninstalling LC5</h2>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>To uninstall LC5: </span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><u8:p></u8:p><span
+  style='font-size:10.0pt;font-family:Verdana'>1.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>In the Windows Control Panel, open Add/Remove Programs.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>2.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>Select <b>LC5</b> from the list of programs installed on
+  your system.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>3.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>An InstallShield window gives you the choice to <b>Modify</b>,
+  <b>Repair</b>, or <b>Remove</b> LC5. Click <b>Remove</b>, and then click <b><u>N</u>ext</b>.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in'><center><img border=0 width=379
+  height=290 src="getting_started_files/image006.jpg"></center></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>4.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>Confirm that you want to delete the files by clicking <b>OK</b>.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+  font-family:Verdana'><center><img border=0 width=330 height=81
+  src="getting_started_files/image008.jpg"></center></span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>5.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>When InstallShield has completed the removal, click <b>Finish</b>.</span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+  font-family:Verdana'><center><img border=0 width=379 height=290
+  src="getting_started_files/image010.jpg"></center></span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+  style='font-size:10.0pt;font-family:Verdana'>6.</span><span style='font-size:
+  7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:10.0pt;
+  font-family:Verdana'>LC5 is now removed from your system.</span></p>
+
+  <h2><a name=manual_install>Remote Manual Installation of LC Agent</a></h2>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>To manually install the LC Agent on a remote machine, use a Command screen, and follow the instructions below:
+
+  <ol>
+  <li> Select <b>Create Remote Agent</b> in the <b>File</b> menu. 
+  <li> A Warning dialog informs you that this regenerates a public key and embeds it in the lcagent.exe file. It also breaks communication between other remote machines. Click <b>Yes</b> to create the remote agent.
+  <li> Copy <b>lcagent.exe</b> from your LC5 directory to the target machine.
+  <li> From a command prompt, locate the directory you copied <b>lcagent.exe</b> on the remote machine, then run the install as follows:<br><br>
+       <ul><span style='font-size:10.0pt;font-family:Courier New'>lcagent.exe /install </ul></span><br>
+  <li> To remove the LC Agent, use the command prompt with the following command:<br><br>
+       <ul><span style='font-size:10.0pt;font-family:Courier New'>lcagent.exe /remove </ul></span><br>
+  <li> Delete the .exe file.
+ </li>
+ </ol>
+
+  <h2><a name=register>Registering LC5</a></h2>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>@stake
+  offers a 15 day free trial period for LC5, providing access to the basic
+  auditing features for 10 user accounts. The following are unavailable in the
+  trial version:<u8:p></u8:p></span></p>
+
+  <ul>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>Brute force crack</span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>Pre-computed crack</span></li>
+   <li><span style='font-size:10.0pt;line-height:150%;font-family:Verdana'> Audit scheduling</span><u8:p></u8:p></li>
+  </ul>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Registered versions of LC5
+  provide an <b>Unlock Code</b> allowing continued use of the product, as well
+  as features available only in the LC5 Administrator version.</p>
+
+  <p><img width=410 height=211 src="images/splash-register.gif" align=center border=0></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>@stake offers registration online, by telephone, fax, and online. </span><a href="http://www.atstake.com/lc/" target="_new"><span style='font-size:10.0pt; font-family:Verdana;color:blue;text-decoration:none'>Click here</span></a><span
+  style='font-size:10.0pt;font-family:Verdana'> for phone and fax numbers, and the online registration form.</span></p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>LC5 is licensed on a
+  per machine basis, and each machine generates its own unique <b>LC5 Serial
+  Number</b>. When registering, provide your name, address, credit card
+  information, email address, and the <b>LC5 Serial Number</b>. <u8:p></u8:p></span></p>
+
+  <p style='margin-left:.5in'><b><span style='font-size:10.0pt;font-family:
+  Verdana'>Note: </span></b><span style='font-size:10.0pt;font-family:Verdana'>The
+  Serial Number is obtained from your installation. You must download and
+  install LC5 to before you can register it</span>.</p>
+  <u8:p></u8:p>
+
+  <p><span style='font-size:10.0pt;font-family:Verdana'>To obtain the LC5
+  Serial Number, launch LC5, and click <b>Register</b> from the LC5 splash
+  screen. The Registration dialog box provides you a Serial Number. When you
+  register, you receive a unique Unlock Code for your installation. Enter this
+  code in the LC5 Registration dialog to unlock the product. <u5:p></u5:p><u8:p></u8:p></span></p>
+  <h2><a name=reinstall>Reinstalling LC5</a></h2>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>To
+  reinstall LC5 on new machine or operating system, you will need to obtain a
+  new Unlock Code. Install LC5 on the new system, then copy the installation's
+  Serial Number, from the <b>About</b> dialog in the <b>Help</b> menu or from
+  the Splash screen that appears when LC5 is launched. </span><a
+  href="http://www.atstake.com/lc/reinstall.html" target="_new"><span
+  style='font-size:10.0pt;font-family:Verdana'>Click here</span></a><span
+  style='font-size:10.0pt;font-family:Verdana'> or go to </span><a
+  href="http://www.atstake.com/lc/reinstall.html"><span style='font-size:10.0pt;
+  font-family:Verdana'>http://www.atstake.com/lc/reinstall.html</span></a><span
+  style='font-size:10.0pt;font-family:Verdana'> and obtain an <b>Unlock Code</b>
+  for your new installation. <u5:p></u5:p><u8:p></u8:p></span></p>
+
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+
+  <p class=MsoNormal style='margin-left:.5in'><b><span style='font-size:10.0pt;
+  font-family:Verdana'>Note: </span></b><span style='font-size:10.0pt;
+  font-family:Verdana'>Unlock Codes are unique to each individual system, and
+  one code does not work for other systems.</span></p>
+  <u8:p></u8:p>
+  <p><b><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;&nbsp;<u5:p></u5:p></span></b></p>
+  </td>
+ </tr>
+</table>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Next:</b> </span><a href="whats_new.html"><span style='font-size:
+10.0pt;font-family:Verdana'>What&#8217;s New in LC5</span></a></p>
+
+<div>
+
+<div id=ftn1>
+
+<div>
+
+<div>
+
+<div>
+
+<div class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>
+
+<hr size=1 width="33%" align=left>
+
+</span></div>
+
+</div>
+
+</div>
+
+</div>
+
+<p class=MsoFootnoteText><a href="#_ftn1" title=""><span
+class=MsoFootnoteReference>[1]</span></a> <i><span style='font-family:Verdana'>The
+SANS Institute. <a href="http://www.sans.org/topten.htm" target="_new">Ten Most
+Critical Internet Security Threats</a> - The Experts' Consensus. January, 2001.</span></i></p>
+
+</div>
+
+</div>
+
+<div>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'><br
+clear=all>
+</span></p>
+
+<div>
+
+<div class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>
+
+<hr size=1 width="33%" align=left>
+
+</span></div>
+
+</div>
+
+<div id=ftn1>
+
+<p class=MsoNormal><a name="_ftn1"></a><a href="#_ftnref1" title=""></a>&nbsp;</p>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

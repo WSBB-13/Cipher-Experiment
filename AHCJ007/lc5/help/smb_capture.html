@@ -1,0 +1,310 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<base target="_self">
+<title>LC5 Documentation: Technical Explanation of Network SMB Capture</title>
+<link rel=Stylesheet type="text/css" media=all href="lc5_doc.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-weight:bold;}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:13.5pt;
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:10.5pt;
+	font-weight:bold;}
+h4
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#0033CC;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#336666;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.mono, li.mono, div.mono
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;}
+p.fine, li.fine, div.fine
+	{margin-right:0in;
+	margin-left:0in;
+	line-height:9.75pt;
+	font-size:8.5pt;}
+p.small, li.small, div.small
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:8.5pt;
+	font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body bgcolor=white lang=EN-US link="#0033CC" vlink="#336666">
+
+<div class=Section1>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=550
+ style='width:412.5pt'>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <h1>Technical Explanation of Network SMB Capture</h1>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Like many computing
+  architectures, Windows passwords do not reflect the most technically
+  sophisticated design, but rather their own particular history of design
+  flaws, vulnerability patches, and the evolutionary restrictions imposed by
+  serving a large installed-base. This section discusses why it is feasible to
+  crack the LM hash that protects Windows passwords, and why the stronger NTLM
+  hash (designed as an improvement on the LM hash and released with Windows NT
+  Service Pack 3) is often irrelevant.</span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse'>
+   <tr>
+    <td width=227 valign=top style='width:170.6pt;border:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>16byte LM hash</span></p>
+    </td>
+    <td width=264 valign=top style='width:2.75in;border:solid windowtext 1.0pt;
+    border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>16byte NTLM hash (md4)</span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The LM hashes only need
+  to go through 7 characters to retrieve passwords (up to 14 chars in length).
+  Furthermore, since there is no salting being done, constants appear, giving
+  away information that speeds up an attack.</span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse'>
+   <tr>
+    <td width=227 valign=top style='width:170.6pt;border:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>1st 8bytes of LM hash</span></p>
+    </td>
+    <td width=264 valign=top style='width:2.75in;border:solid windowtext 1.0pt;
+    border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>second 8bytes of LM hash</span></p>
+    </td>
+   </tr>
+   <tr>
+    <td width=227 valign=top style='width:170.6pt;padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>from first 7 chars</span></p>
+    </td>
+    <td width=264 valign=top style='width:2.75in;padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>from second 7 chars</span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The first 8 bytes are
+  derived from the first seven characters of the password and the second 8
+  bytes are derived from the 8th through 14th characters of the password. If
+  the password is less than 7 characters then the second half will always be </span><b><span
+  style='font-size:10.0pt;font-family:"Courier New"'>0xAAD3B435B51404EE</span></b><span
+  style='font-size:10.0pt;font-family:Verdana'>. <br>
+  <br>
+  For example, if the user's password has an LM hash of </span><b><span
+  style='font-size:10.0pt;font-family:"Courier New"'>0xC23413A8A1E7665f</span></b><b><span
+  style='font-size:10.0pt;font-family:Verdana'> </span></b><b><span
+  style='font-size:10.0pt;font-family:"Courier New"'>AAD3B435B51404EE</span></b><b><span
+  style='font-size:10.0pt;font-family:Verdana'> </span></b><span
+  style='font-size:10.0pt;font-family:Verdana'>(plug this into LC5, and the
+  password return is &quot;WELCOME&quot;).</span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Here is what happens to
+  this hash on the network: </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;&nbsp;&nbsp;<b>B
+  --&gt; A </b></span></p>
+  <ol start=1 type=1>
+   <li><b><span style='font-size:10.0pt;font-family:Verdana'>B</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'> sends an 8 byte challenge
+       to A (assuming it is </span><b><span style='font-size:10.0pt;font-family:
+       "Courier New"'>0x0001020304050607</span></b><span style='font-size:10.0pt;
+       font-family:Verdana'>)</span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>Machine
+       <b>A</b> takes the hash of </span><b><span style='font-size:10.0pt;
+       font-family:"Courier New"'>0xC23413A8A1E7665fAAD3B435B51404EE</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'> and adds 5 nulls to it,
+       thus becoming </span><b><span style='font-size:10.0pt;font-family:"Courier New"'>0xC23413A8A1E7665fAAD3B435B51404EE0000000000</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'>.</span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>The
+       string </span><b><span style='font-size:10.0pt;font-family:"Courier New"'>0xC23413A8A1E7665fAAD3B435B51404EE0000000000</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'> is broken into three
+       groups of 7:</span><b><span style='font-size:10.0pt;font-family:"Courier New"'>C23413A8A1E766
+       5fAAD3B435B514 04EE0000000000</span></b></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>The 7
+       byte strings are str_to_key'd (if you will) into 8 byte odd parity DES
+       keys. Now we have:</span></li>
+  </ol>
+  <p style='margin-left:.5in'><span style='font-size:10.0pt;font-family:Verdana'>|
+  8byteDESkey1 | | 8byteDESkey2 | | 8 byteDESkey3 | </span></p>
+  <ol start=5 type=1>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>8byteDESkey1
+       is used to encrypt the challenge </span><b><span style='font-size:10.0pt;
+       font-family:"Courier New"'>0x0001020304050607</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'>. Let's assume the result
+       is </span><b><span style='font-size:10.0pt;font-family:"Courier New"'>0xAAAAAAAAAAAAAAAA</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'>.</span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>8byteDESkey2
+       is used to encrypt the challenge </span><b><span style='font-size:10.0pt;
+       font-family:"Courier New"'>0x0001020304050607</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'>. Let's assume the result
+       is </span><b><span style='font-size:10.0pt;font-family:"Courier New"'>0xBBBBBBBBBBBBBBBB</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'>.</span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>8byteDESkey3
+       is used to encrypt the challenge </span><b><span style='font-size:10.0pt;
+       font-family:"Courier New"'>0x0001020304050607</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'>. Let's assume the result
+       is </span><b><span style='font-size:10.0pt;font-family:"Courier New"'>0xCCCCCCCCCCCCCCCC</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'>.</span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>The
+       three 8byte values are concatenated, and the 24 byte response of </span><b><span
+       style='font-size:10.0pt;font-family:"Courier New"'>0xAAAAAAAABBBBBBBBCCCCCCCC</span></b><span
+       style='font-size:10.0pt;font-family:Verdana'> is returned to the server.</span></li>
+   <li><span style='font-size:10.0pt;font-family:Verdana'>The
+       server does the same thing to the hash on its end and compares the
+       result to the 24 byte response. If they match, it was the correct
+       original hash.<br>
+       <br>
+       </span></li>
+  </ol>
+  <p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Here is
+  why this is breakable. <span style='font-size:10.0pt;font-family:Verdana'>
+  The LM Hash for 7 or fewer character passwords:</span></p>
+<P>
+  <div align=center>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse'>
+   <tr>
+    <td width=183 valign=top style='width:137.25pt;border:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>C23413A8A1E766</span></p>
+    </td>
+    <td width=183 valign=top style='width:137.25pt;border:solid windowtext 1.0pt;
+    border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>5fAAD3B435B514</span></p>
+    </td>
+    <td width=183 valign=top style='width:137.25pt;border:solid windowtext 1.0pt;
+    border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>04EE0000000000</span></p>
+    </td>
+   </tr>
+  </table>
+  </div>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>The first thing to
+  check is if the user's password is shorter than 8 characters, by taking the 7
+  byte value of </span><b><span style='font-size:10.0pt;font-family:"Courier New"'>0x04EE0000000000</span></b><span
+  style='font-size:10.0pt;font-family:Verdana'>, turning it into an 8 byte odd
+  parity DES key, and encrypting it against the 8 byte challenge of </span><b><span
+  style='font-size:10.0pt;font-family:"Courier New"'>0x0001020304050607</span></b><span
+  style='font-size:10.0pt;font-family:Verdana'>. If we get the result of </span><b><span
+  style='font-size:10.0pt;font-family:"Courier New"'>0xCCCCCCCCCCCCCCCC</span></b><span
+  style='font-size:10.0pt;font-family:Verdana'> then we are pretty sure it is
+  shorter than 8 characters. In order to be sure we can run through </span><b><span
+  style='font-size:10.0pt;font-family:"Courier New"'>0x??AAD3B435B514</span></b><span
+  style='font-size:10.0pt;font-family:Verdana'> (i.e. just 256 possible
+  combinations) to see that 5f shows us the result is </span><b><span
+  style='font-size:10.0pt;font-family:"Courier New"'>0xBBBBBBBBBBBBBBBB</span></b><span
+  style='font-size:10.0pt;font-family:Verdana'>, proving the password is less
+  than 8 characters and also giving us the last byte of the first half of the
+  LM hash. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>What if the test above
+  proves we're dealing with an 8-character or greater password? </span></p>
+  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse'>
+   <tr>
+    <td width=183 valign=top style='width:137.25pt;border:solid windowtext 1.0pt;
+    padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>C23413A8A1E766</span></p>
+    </td>
+    <td width=183 valign=top style='width:137.25pt;border:solid windowtext 1.0pt;
+    border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>AC435F2DD90417</span></p>
+    </td>
+    <td width=183 valign=top style='width:137.25pt;border:solid windowtext 1.0pt;
+    border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+    <p align=center style='text-align:center'><span style='font-size:10.0pt;
+    font-family:"Courier New"'>CCD60000000000</span></p>
+    </td>
+   </tr>
+  </table>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>Worst case scenario, it
+  takes us 65,535 checks to figure out that the 2bytes that are used in the
+  last third are 0xCCD6. In a simplistic fashion, you could go through your 7
+  digit combinations of characters for the first third the same way you would
+  the LM hash from the registry. This yields not only the first third of the
+  response, but also the first byte of the second third. Keep in mind that you
+  already have the last two bytes that made up the third. You could approach
+  the middle third in the same fashion. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>In summary, the challenge
+  response can be brute-forced for the LM hash. Microsoft made the decision to
+  continue sending the LM hash response along with the NTLM response even when
+  NT Service Pack 3 was installed, probably because eliminating the LM hash
+  response would prevent Windows 95 and 98 machines from talking to NT
+  machines. The strength of the more secure NTLM hash is made irrelevant by its
+  position in a chain whose weakest link is the LM hash. </span></p>
+  <p><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p><u5:p><u8:p><b><span style='font-size:10.0pt;font-family:Verdana'>Previous:</span></b><span
+style='font-size:10.0pt;font-family:Verdana'> <a href="commands.html">LC5
+Command Reference</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</u8:p><b>Next:</b> </span><a href="organization.html"><span style='font-size:
+10.0pt;font-family:Verdana'>Password Security in Your Organization</span></a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

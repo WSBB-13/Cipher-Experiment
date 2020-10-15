@@ -1,0 +1,8 @@
+mv
+admin
+administrator
+test
+guest
+root
+backup
+user
